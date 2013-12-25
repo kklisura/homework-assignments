@@ -9,21 +9,21 @@ class ShannonFanoCoding:
         More on http://en.wikipedia.org/wiki/Shannon%E2%80%93Fano_coding
     """
  
-    def averageBitsForEncoding(codingSchema):
+    def averageBitsForEncoding(coding_schema):
         """Return an average bits need for encoding."""
 
         sum_of_occurrences = 0
         sum_of_bits = 0
 
-        for (char, occurences, encoding) in codingSchema:
+        for (char, occurences, coding) in coding_schema:
             sum_of_occurrences += occurences
-            sum_of_bits += len(encoding) * occurences
+            sum_of_bits += len(coding) * occurences
 
         return sum_of_bits / sum_of_occurrences
 
 
-    def getCodingScheme(input):
-        """Return a coding schema where coding shema is a list of tuple(char, number_of_occurences, encoding_schema)."""
+    def getCodingSchema(input):
+        """Return a coding schema where coding shema is a list of tuple(char, number_of_occurences, coding_schema)."""
 
         # Break input into chars
         input_char_list = set([char for char in input])
@@ -96,11 +96,11 @@ def main():
         print("I need input string to consume. :)")
         return
 
-    codingSchema = ShannonFanoCoding.getCodingScheme(sys.argv[1])
-    averageBits = ShannonFanoCoding.averageBitsForEncoding(codingSchema)
+    coding_schema = ShannonFanoCoding.getCodingSchema(sys.argv[1])
+    average_bits = ShannonFanoCoding.averageBitsForEncoding(coding_schema)
 
-    print("Average bits needed:", averageBits)
-    print("Compression factor:", 8 / averageBits)
+    print("Average bits needed:", average_bits)
+    print("Compression factor:", 8 / average_bits)
 
 
 if __name__ == "__main__":
